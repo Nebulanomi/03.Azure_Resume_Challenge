@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 })
 
 //const = The variable will be the same value forever
-const functionApi = '';
+const functionApi = 'http://localhost:7071/api/Get_Resume_Counter';
 
 const getVisitCount = () => {
     //let = The variable will change
