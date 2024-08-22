@@ -59,11 +59,10 @@ resource "azurerm_cosmosdb_account" "db_account" {
 }
 
 resource "azurerm_cosmosdb_sql_database" "db_sql" {
-  name                = "tf-cosmos-sql-${random_integer.ri.result}"
+  name                = "resume"
   resource_group_name = azurerm_resource_group.rg.name
   account_name        = azurerm_cosmosdb_account.db_account.name
   throughput          = 400
-
 
 }
 
