@@ -21,17 +21,15 @@ resource "azurerm_cosmosdb_account" "db_account" {
   name                = "tf-cosmos-account-${random_integer.ri.result}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  kind                = "GlobalDocumentDB"
-  offer_type          = "Standard"
-  enable_free_tier    = true
+
+  kind                      = "GlobalDocumentDB"
+  offer_type                = "Standard"
+  consistency_policy        = "Session"
+  enable_automatic_failover = true
+
   geo_location {
     location          = azurerm_resource_group.rg.location
     failover_priority = 0
-  }
-  consistency_policy {
-    consistency_level       = "BoundedStaleness"
-    max_interval_in_seconds = 300
-    max_staleness_prefix    = 100000
   }
 
   capabilities {
@@ -43,7 +41,6 @@ resource "azurerm_cosmosdb_sql_database" "db_sql" {
   name                = "resume"
   resource_group_name = azurerm_resource_group.rg.name
   account_name        = azurerm_cosmosdb_account.db_account.name
-  throughput          = 400
 }
 
 resource "azurerm_cosmosdb_sql_container" "db_container" {
@@ -53,7 +50,6 @@ resource "azurerm_cosmosdb_sql_container" "db_container" {
   database_name         = azurerm_cosmosdb_sql_database.db_sql.name
   partition_key_paths   = ["/id"]
   partition_key_version = 1
-  throughput            = 400
 
   indexing_policy {
     indexing_mode = "consistent"
