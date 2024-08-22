@@ -19,9 +19,9 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "rg-tf-backend"
-    storage_account_name = "satfbackendalex"
-    container_name       = "c-tf-state"
+    resource_group_name  = var.resource_group_name
+    storage_account_name = var.storage_account_name
+    container_name       = var.container_name
     key                  = var.sa_key
   }
 }
