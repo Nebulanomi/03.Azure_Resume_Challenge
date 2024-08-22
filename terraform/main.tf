@@ -17,44 +17,48 @@ resource "random_integer" "ri" {
   max = 99999
 }
 
+resource "azurerm_cosmosdb_account" "example" {
+  name                      = random_pet.prefix.id
+  location                  = var.cosmosdb_account_location
+  resource_group_name       = azurerm_resource_group.example.name
+  offer_type                = "Standard"
+  kind                      = "GlobalDocumentDB"
+  enable_automatic_failover = false
+  enable_free_tier          = true
+  geo_location {
+    location          = var.location
+    failover_priority = 0
+  }
+  consistency_policy {
+    consistency_level       = "BoundedStaleness"
+    max_interval_in_seconds = 300
+    max_staleness_prefix    = 100000
+  }
+  depends_on = [
+    azurerm_resource_group.example
+  ]
+}
+
 resource "azurerm_cosmosdb_account" "db_account" {
-  name                = "tf-cosmos-account-${random_integer.ri.result}"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  kind                = "Parse"
-  offer_type          = "Standard"
-
-  automatic_failover_enabled = true
-
-  capabilities {
-    name = "EnableAggregationPipeline"
+  name                      = "tf-cosmos-account-${random_integer.ri.result}"
+  location                  = azurerm_resource_group.rg.location
+  resource_group_name       = azurerm_resource_group.rg.name
+  kind                      = "GlobalDocumentDB"
+  offer_type                = "Standard"
+  enable_automatic_failover = false
+  enable_free_tier          = true
+  geo_location {
+    location          = azurerm_resource_group.rg.location
+    failover_priority = 0
   }
-
-  capabilities {
-    name = "mongoEnableDocLevelTTL"
-  }
-
-  capabilities {
-    name = "MongoDBv3.4"
-  }
-
-  capabilities {
-    name = "EnableMongo"
-  }
-
-  capabilities {
-    name = "EnableServerless"
-  }
-
   consistency_policy {
     consistency_level       = "BoundedStaleness"
     max_interval_in_seconds = 300
     max_staleness_prefix    = 100000
   }
 
-  geo_location {
-    location          = "North Europe"
-    failover_priority = 0
+  capabilities {
+    name = "EnableServerless"
   }
 }
 
@@ -63,7 +67,6 @@ resource "azurerm_cosmosdb_sql_database" "db_sql" {
   resource_group_name = azurerm_resource_group.rg.name
   account_name        = azurerm_cosmosdb_account.db_account.name
   throughput          = 400
-
 }
 
 resource "azurerm_cosmosdb_sql_container" "db_container" {
@@ -74,4 +77,24 @@ resource "azurerm_cosmosdb_sql_container" "db_container" {
   partition_key_paths   = ["/id"]
   partition_key_version = 1
   throughput            = 400
+
+  indexing_policy {
+    indexing_mode = "consistent"
+
+    included_path {
+      path = "/*"
+    }
+
+    included_path {
+      path = "/included/?"
+    }
+
+    excluded_path {
+      path = "/excluded/?"
+    }
+  }
+
+  unique_key {
+    paths = ["/definition/idlong", "/definition/idshort"]
+  }
 }
