@@ -67,7 +67,6 @@ jobs:
 
       - name: Terraform Init
         id: init
-        addSpnToEnvironment: true
         run: |
           terraform init \
             -backend-config="resource_group_name=${{ secrets.RESOURCE_GROUP_NAME }}" \
