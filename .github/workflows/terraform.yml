@@ -36,7 +36,7 @@ jobs:
       TF_VAR_resource_group_name: ${{ secrets.RESOURCE_GROUP_NAME }}  # Resource group name for Terraform state
       TF_VAR_storage_account_name: ${{ secrets.STORAGE_ACCOUNT_NAME }}  # Storage account name for Terraform state
       TF_VAR_container_name: ${{ secrets.CONTAINER_NAME }}  # Container name in the storage account for Terraform state
-      TF_VAR_key: ${{ secrets.SA_KEY }}  # Key for the Terraform state file
+      TF_VAR_sa_key: ${{ secrets.SA_KEY }}  # Key for the Terraform state file
 
     steps:
       - name: Checkout
@@ -72,7 +72,7 @@ jobs:
             -backend-config="resource_group_name=${{ secrets.RESOURCE_GROUP_NAME }}" \
             -backend-config="storage_account_name=${{ secrets.STORAGE_ACCOUNT_NAME }}" \
             -backend-config="container_name=${{ secrets.CONTAINER_NAME }}" \
-            -backend-config="key=${{ secrets.SA_KEY }}"  # Initialize Terraform and configure the backend state
+            -backend-config="sa_key=${{ secrets.SA_KEY }}"  # Initialize Terraform and configure the backend state
 
       - name: Terraform Validate
         id: validate
