@@ -72,7 +72,7 @@ jobs:
             -backend-config="resource_group_name=${{ secrets.RESOURCE_GROUP_NAME }}" \
             -backend-config="storage_account_name=${{ secrets.STORAGE_ACCOUNT_NAME }}" \
             -backend-config="container_name=${{ secrets.CONTAINER_NAME }}" \
-            -backend-config="sa_key=${{ secrets.KEY }}"  # Initialize Terraform and configure the backend state
+            -backend-config="key=${{ secrets.KEY }}"  # Initialize Terraform and configure the backend state
 
       - name: Terraform Validate
         id: validate
