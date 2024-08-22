@@ -54,11 +54,6 @@ resource "azurerm_cosmosdb_account" "db_account" {
 
   geo_location {
     location          = "North Europe"
-    failover_priority = 1
-  }
-
-  geo_location {
-    location          = "North Europe"
     failover_priority = 0
   }
 }
