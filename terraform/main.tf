@@ -24,8 +24,13 @@ resource "azurerm_cosmosdb_account" "db_account" {
 
   kind                      = "GlobalDocumentDB"
   offer_type                = "Standard"
-  consistency_policy        = "Session"
   enable_automatic_failover = true
+
+  consistency_policy {
+    consistency_level       = "BoundedStaleness"
+    max_interval_in_seconds = 300
+    max_staleness_prefix    = 100000
+  }
 
   geo_location {
     location          = azurerm_resource_group.rg.location
