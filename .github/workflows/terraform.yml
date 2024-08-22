@@ -33,7 +33,7 @@ jobs:
       TF_VAR_tenant_id: ${{ secrets.TENANT_ID }}         # Tenant ID for Azure resources
 
       # Terraform variables for resource configuration (state)
-      TF_VAR_key: ${{ secrets.KEY }}  # Key for the Terraform state file
+      TF_VAR_key: ${{ secrets.SA_KEY }}  # Key for the Terraform state file
 
     steps:
       - name: Checkout
@@ -66,7 +66,7 @@ jobs:
         id: init
         run: |
           terraform init \
-            -backend-config="key=${{ secrets.KEY }}"  # Initialize Terraform and configure the backend state
+            -backend-config="key=${{ secrets.SA_KEY }}"  # Initialize Terraform and configure the backend state
 
       - name: Terraform Validate
         id: validate

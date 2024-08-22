@@ -6,7 +6,7 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "key" {
+variable "sa_key" {
   description = "The access key for the Azure Storage Account"
   type        = string
   sensitive   = true

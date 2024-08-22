@@ -18,18 +18,30 @@ resource "random_integer" "ri" {
 }
 
 resource "azurerm_cosmosdb_account" "db_account" {
-  name                = "tfex-cosmos-account-${random_integer.ri.result}"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = "tf-cosmos-account-${random_integer.ri.result}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  kind                = "Core"
+
 
   capacity {
     name = "serverless"
   }
 }
 
-resource "azurerm_cosmosdb_sql_database" "example" {
-  name                = "tfex-cosmos-sql-${random_integer.ri.result}"
-  resource_group_name = data.azurerm_cosmosdb_account.example.resource_group_name
-  account_name        = data.azurerm_cosmosdb_account.example.name
+resource "azurerm_cosmosdb_sql_database" "db_sql" {
+  name                = "tf-cosmos-sql-${random_integer.ri.result}"
+  resource_group_name = data.azurerm_cosmosdb_account.rg.name
+  account_name        = data.azurerm_cosmosdb_account.db_account.name
   throughput          = 400
+}
+
+resource "azurerm_cosmosdb_sql_container" "db_container" {
+  name                  = "counter"
+  resource_group_name   = data.azurerm_cosmosdb_account.rg.name
+  account_name          = data.azurerm_cosmosdb_account.db_account.name
+  database_name         = azurerm_cosmosdb_sql_database.db_sql.name
+  partition_key_paths   = ["/id"]
+  partition_key_version = 1
+  throughput            = 400
 }

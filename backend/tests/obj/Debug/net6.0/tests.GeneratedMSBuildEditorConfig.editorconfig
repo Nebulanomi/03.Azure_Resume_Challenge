@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tests
-build_property.ProjectDir = /workspaces/Azure_Resume/backend/tests/
+build_property.ProjectDir = c:\Users\AlexandrePereira\OneDrive - Metyis\Desktop\Projects\03.Azure_Resume_Challenge\backend\tests\

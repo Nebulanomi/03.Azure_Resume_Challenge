@@ -22,7 +22,7 @@ terraform {
     resource_group_name  = "rg-tf-backend"
     storage_account_name = "satfbackendalex"
     container_name       = "c-tf-state"
-    key                  = var.key
+    key                  = var.sa_key
   }
 }
 
