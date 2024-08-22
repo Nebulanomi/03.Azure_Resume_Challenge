@@ -3,8 +3,8 @@ terraform {
 
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~>3.0"
+      source   = "hashicorp/azurerm"
+      version  = "~>3.0"
       use_oidc = true
     }
 
@@ -24,7 +24,7 @@ terraform {
     storage_account_name = var.storage_account_name
     container_name       = var.container_name
     key                  = var.key
-    use_oidc = true
+    use_oidc             = true
   }
 }
 
