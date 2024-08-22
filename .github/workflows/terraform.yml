@@ -1,0 +1,90 @@
+name: 01. Terraform Deployment
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on changes to the main branch
+    paths:
+      - 'terraform/**'  # Trigger on changes within the terraform directory
+      - '.github/workflows/terraform.yml'  # Trigger on changes to this workflow file
+
+  workflow_dispatch:  # Allow manual triggering of the workflow
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    defaults:
+      run:
+        shell: bash  # Set the default shell to bash
+        working-directory: './terraform'  # Set default working directory for all steps
+
+    env:
+      # Azure credentials for Terraform
+      ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}           # Azure service principal client ID
+      ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}   # Azure service principal client secret
+      ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}  # Azure subscription ID
+      ARM_TENANT_ID: ${{ secrets.TENANT_ID }}           # Azure tenant ID
+
+      # Terraform variables for Azure credentials
+      TF_VAR_client_id: ${{ secrets.CLIENT_ID }}         # Client ID for Azure resources
+      TF_VAR_client_secret: ${{ secrets.CLIENT_SECRET }}  # Client secret for Azure resources
+      TF_VAR_subscription_id: ${{ secrets.SUBSCRIPTION_ID }}  # Subscription ID for Azure resources
+      TF_VAR_tenant_id: ${{ secrets.TENANT_ID }}         # Tenant ID for Azure resources
+
+      # Terraform variables for resource configuration (state)
+      TF_VAR_key: ${{ secrets.KEY }}  # Key for the Terraform state file
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3  # Check out the repository code to the GitHub Actions runner
+
+      - name: Log in to Azure
+        id: log-in
+        uses: azure/login@v2  # Authenticate with Azure using a service principal
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  # JSON credentials for Azure authentication
+
+      - name: Azure CLI script
+        id: cli
+        uses: azure/cli@v2  # Set up Azure CLI
+        with:
+          azcliversion: latest  # Use the latest version of Azure CLI
+          inlineScript: |
+            az account show  # Display information about the current Azure subscription
+
+      - name: Setup Terraform
+        id: setup
+        uses: hashicorp/setup-terraform@v2  # Set up the Terraform CLI
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check # Format Terraform files for formatting issues without making changes
+
+      - name: Terraform Init
+        id: init
+        run: |
+          terraform init \
+            -backend-config="key=${{ secrets.KEY }}"  # Initialize Terraform and configure the backend state
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color  # Validate the Terraform configuration files to ensure they are syntactically correct
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false -out=main.tfplan  # Create an execution plan for Terraform to show what changes will be made
+
+      - name: Terraform Apply
+        run: terraform apply -no-color -input=false -auto-approve main.tfplan  # Apply the Terraform plan to create/update the infrastructure without user confirmation
+
+      # Cleanup step to delete the Terraform plan file after deployment
+      - name: Clean up
+        id: clean
+        if: always()  # Ensure this step runs even if previous steps fail
+        run: |
+          rm -f main.tfplan  # Remove the Terraform plan file
+
+      # Uncomment the following lines if you want the workflow to continue even if the apply step fails
+      # continue-on-error: true
