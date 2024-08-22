@@ -5,7 +5,6 @@ terraform {
     azurerm = {
       source   = "hashicorp/azurerm"
       version  = "~>3.0"
-      use_oidc = true
     }
 
     azapi = {
@@ -24,7 +23,6 @@ terraform {
     storage_account_name = var.storage_account_name
     container_name       = var.container_name
     key                  = var.key
-    use_oidc             = true
   }
 }
 
