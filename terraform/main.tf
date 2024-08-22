@@ -18,12 +18,12 @@ resource "random_integer" "ri" {
 }
 
 resource "azurerm_cosmosdb_account" "db_account" {
-  name                      = "tf-cosmos-account-${random_integer.ri.result}"
-  location                  = azurerm_resource_group.rg.location
-  resource_group_name       = azurerm_resource_group.rg.name
-  kind                      = "GlobalDocumentDB"
-  offer_type                = "Standard"
-  enable_free_tier          = true
+  name                = "tf-cosmos-account-${random_integer.ri.result}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  kind                = "GlobalDocumentDB"
+  offer_type          = "Standard"
+  enable_free_tier    = true
   geo_location {
     location          = azurerm_resource_group.rg.location
     failover_priority = 0
