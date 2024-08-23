@@ -96,12 +96,9 @@ resource "azurerm_service_plan" "sp" {
   name                = "azure-functions-test-service-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  sku_name            = "Y1"
+  sku_name            = "Y1" # Make sure this SKU is valid for Linux. Usually, it should be like B1, S1, P1v2, etc.
   os_type             = "Linux"
 
-  application_stack {
-    dotnet_version = "6.0"
-  }
 }
 
 resource "azurerm_linux_function_app" "fun" {
@@ -112,5 +109,12 @@ resource "azurerm_linux_function_app" "fun" {
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
 
-  site_config {}
+  site_config {
+    application_stack {
+      dotnet_version = "6.0" # Specify the dotnet version
+    }
+    linux_fx_version = "DOTNET|6.0" # This is crucial to set the .NET version correctly
+  }
+
+  https_only = true # Enforces HTTPS access only
 }
