@@ -100,7 +100,7 @@ resource "azurerm_service_plan" "sp" {
   os_type             = "Linux"
 }
 
-resource "azurerm_function_app" "fun" {
+resource "azurerm_linux_function_app" "fun" {
   name                       = "GetResumeCounter"
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
