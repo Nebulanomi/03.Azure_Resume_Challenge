@@ -98,6 +98,7 @@ resource "azurerm_service_plan" "sp" {
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "FunctionApp"
   sku_name            = "FunSku"
+  os_type             = "Linux"
 }
 
 resource "azurerm_function_app" "fun" {
