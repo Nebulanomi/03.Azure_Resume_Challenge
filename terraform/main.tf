@@ -96,8 +96,7 @@ resource "azurerm_service_plan" "sp" {
   name                = "azure-functions-test-service-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  kind                = "FunctionApp"
-  sku_name            = "FunSku"
+  sku_name            = "Y1"
   os_type             = "Linux"
 }
 
