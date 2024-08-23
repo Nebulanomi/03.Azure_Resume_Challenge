@@ -113,7 +113,6 @@ resource "azurerm_linux_function_app" "fun" {
     application_stack {
       dotnet_version = "6.0" # Specify the dotnet version
     }
-    linux_fx_version = "DOTNET|6.0" # This is crucial to set the .NET version correctly
   }
 
   https_only = true # Enforces HTTPS access only
