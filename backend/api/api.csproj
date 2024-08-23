@@ -1,19 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+<Project Sdk="Microsoft.NET.Sdk"> <!-- Declares that this project uses the .NET SDK, which includes the necessary tools for building .NET applications. -->
+
+  <PropertyGroup> <!-- Defines project-wide properties. -->
+    <TargetFramework>net6.0</TargetFramework> <!-- Specifies that the project targets .NET 6.0, which is a long-term support (LTS) version of .NET. -->
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion> <!-- Specifies that this project is using version 4 of Azure Functions. -->
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.1" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
+
+  <ItemGroup> <!-- Groups the NuGet package references that this project depends on. -->
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.8.0" /> <!-- References the package needed to work with Azure Cosmos DB in Azure Functions, specifically version 4.8.0. -->
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" /> <!-- References the Azure Functions SDK, necessary for building and running Azure Functions, specifically version 4.4.0. -->
   </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+  <ItemGroup> <!-- Another item group, this time for handling specific files in the project. -->
+    <None Update="host.json"> <!-- Configures the `host.json` file, which contains global configuration options for all functions in the project. -->
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> <!-- Ensures that the `host.json` file is copied to the output directory if it is newer than the one already there. -->
     </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    <None Update="local.settings.json"> <!-- Configures the `local.settings.json` file, which stores settings like connection strings for local development. -->
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> <!-- Ensures that the `local.settings.json` file is copied to the output directory if it is newer. -->
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory> <!-- Prevents the `local.settings.json` file from being published to Azure, as it typically contains sensitive information that should not be exposed. -->
     </None>
   </ItemGroup>
+
 </Project>

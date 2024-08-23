@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main  # Trigger the workflow on changes to the main branch
-    paths:
-      - 'terraform/**'  # Trigger on changes within the terraform directory
-      - '.github/workflows/terraform.yml'  # Trigger on changes to this workflow file
+#    paths:
+#      - 'terraform/**'  # Trigger on changes within the terraform directory
+#      - '.github/workflows/terraform.yml'  # Trigger on changes to this workflow file
 
   workflow_dispatch:  # Allow manual triggering of the workflow
 

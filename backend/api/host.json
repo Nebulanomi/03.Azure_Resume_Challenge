@@ -1,12 +1,12 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
+    "version": "2.0", // Specifies the version of the Azure Functions runtime. Version 2.0 introduces several new features and improvements over version 1.0.
+    "logging": { // Configuration settings for logging within Azure Functions.
+        "applicationInsights": { // Settings specific to Application Insights, which is used for monitoring and logging.
+            "samplingSettings": { // Configuration related to sampling for Application Insights to reduce the volume of telemetry data.
+                "isEnabled": true, // Indicates whether sampling is enabled. When enabled, only a subset of telemetry data is sent to reduce costs and data volume.
+                "excludedTypes": "Request" // Specifies types of telemetry data to exclude from sampling. In this case, 'Request' telemetry (e.g., HTTP request data) is excluded, meaning it will be collected in full.
             },
-            "enableLiveMetricsFilters": true
+            "enableLiveMetricsFilters": true // Enables live metrics filtering in Application Insights, allowing real-time monitoring and filtering of metrics data.
         }
     }
 }

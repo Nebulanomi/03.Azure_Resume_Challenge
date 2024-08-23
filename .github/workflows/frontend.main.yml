@@ -2,10 +2,12 @@ name: deploy_frontend
 
 #Deploys when push is made from frontend folder
 on:
-    push:
-        branches: [ main ]
-        paths:
-        - 'frontend/**'
+#    push:
+#        branches: [ main ]
+#        paths:
+#        - 'frontend/**'
+
+    workflow_dispatch:  # Allow manual triggering of the workflow
 
 jobs:
   build:

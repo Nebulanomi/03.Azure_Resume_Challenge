@@ -2,10 +2,12 @@ name: deploy_backend
 
 # Deploy when push made from backend folder.
 on:
-  push:
-        branches: [ main ]
-        paths:
-        - 'backend/**'
+#  push:
+#        branches: [ main ]
+#        paths:
+#        - 'backend/**'
+
+  workflow_dispatch:  # Allow manual triggering of the workflow
 
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
