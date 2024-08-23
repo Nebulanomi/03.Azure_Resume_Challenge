@@ -39,7 +39,7 @@ resource "azurerm_cosmosdb_account" "db_account" {
 
   kind                      = "GlobalDocumentDB"
   offer_type                = "Standard"
-  enable_automatic_failover = true
+  automatic_failover_enabled = true
 
   consistency_policy {
     consistency_level       = "BoundedStaleness"
@@ -92,7 +92,7 @@ resource "azurerm_cosmosdb_sql_container" "db_container" {
   }
 }
 
-resource "azurerm_app_service_plan" "sp" {
+resource "azurerm_service_plan" "sp" {
   name                = "azure-functions-test-service-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -105,7 +105,7 @@ resource "azurerm_app_service_plan" "sp" {
 }
 
 resource "azurerm_function_app" "example" {
-  name                       = "Get_Resume_Counter"
+  name                       = "GetResumeCounter"
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   app_service_plan_id        = azurerm_app_service_plan.sp.id
