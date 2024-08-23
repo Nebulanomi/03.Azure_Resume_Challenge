@@ -1,9 +1,9 @@
 name: 01. Terraform Deployment
 
 on:
-  push:
-    branches:
-      - main  # Trigger the workflow on changes to the main branch
+#  push:
+#    branches:
+#      - main  # Trigger the workflow on changes to the main branch
 #    paths:
 #      - 'terraform/**'  # Trigger on changes within the terraform directory
 #      - '.github/workflows/terraform.yml'  # Trigger on changes to this workflow file
