@@ -13,16 +13,16 @@
     <SourceRoot Include="C:\Users\AlexandrePereira\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.visualstudio.props')" />
-    <Import Project="$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.testplatform.testhost\17.7.1\build\netcoreapp3.1\Microsoft.TestPlatform.TestHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.testplatform.testhost\17.7.1\build\netcoreapp3.1\Microsoft.TestPlatform.TestHost.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\17.7.1\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\17.7.1\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\17.7.1\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\17.7.1\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.visualstudio.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.core\2.4.1\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.4.1\build\xunit.core.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.razor.design\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.extensions\2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\AlexandrePereira\.nuget\packages\xunit.analyzers\1.0.0</Pkgxunit_analyzers>
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\AlexandrePereira\.nuget\packages\xunit.analyzers\0.10.0</Pkgxunit_analyzers>
     <PkgMicrosoft_Azure_WebJobs_Script_ExtensionsMetadataGenerator Condition=" '$(PkgMicrosoft_Azure_WebJobs_Script_ExtensionsMetadataGenerator)' == '' ">C:\Users\AlexandrePereira\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1</PkgMicrosoft_Azure_WebJobs_Script_ExtensionsMetadataGenerator>
     <PkgMicrosoft_Azure_Functions_Analyzers Condition=" '$(PkgMicrosoft_Azure_Functions_Analyzers)' == '' ">C:\Users\AlexandrePereira\.nuget\packages\microsoft.azure.functions.analyzers\1.0.0</PkgMicrosoft_Azure_Functions_Analyzers>
     <PkgMicrosoft_NET_Sdk_Functions Condition=" '$(PkgMicrosoft_NET_Sdk_Functions)' == '' ">C:\Users\AlexandrePereira\.nuget\packages\microsoft.net.sdk.functions\4.4.0</PkgMicrosoft_NET_Sdk_Functions>

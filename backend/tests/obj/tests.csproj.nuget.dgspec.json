@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj": {}
+    "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj": {}
   },
   "projects": {
-    "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj": {
+    "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj",
+        "projectPath": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj",
         "packagesPath": "C:\\Users\\AlexandrePereira\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\obj\\",
+        "outputPath": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AlexandrePereira\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -67,14 +67,14 @@
         }
       }
     },
-    "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj": {
+    "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj",
+        "projectUniqueName": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj",
         "projectName": "tests",
-        "projectPath": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj",
+        "projectPath": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\tests.csproj",
         "packagesPath": "C:\\Users\\AlexandrePereira\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\obj\\",
+        "outputPath": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AlexandrePereira\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -89,8 +89,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj": {
-                "projectPath": "c:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj"
+              "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj": {
+                "projectPath": "C:\\Users\\AlexandrePereira\\OneDrive - Metyis\\Desktop\\Projects\\03.Azure_Resume_Challenge\\backend\\api\\api.csproj"
               }
             }
           }
@@ -111,23 +111,23 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.7.1, )"
+              "version": "[17.1.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.2.0, )"
+              "version": "[3.1.2, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.2, )"
+              "version": "[2.4.1, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.5, )"
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
