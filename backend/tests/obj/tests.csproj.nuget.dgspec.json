@@ -19,6 +19,9 @@
         "originalTargetFrameworks": [
           "net6.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
@@ -37,11 +40,11 @@
           "dependencies": {
             "Microsoft.Azure.WebJobs.Extensions.CosmosDB": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[4.8.0, )"
             },
             "Microsoft.NET.Sdk.Functions": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[4.4.0, )"
             }
           },
           "imports": [
@@ -79,6 +82,9 @@
         "originalTargetFrameworks": [
           "net6.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
