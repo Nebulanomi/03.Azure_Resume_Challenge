@@ -57,9 +57,9 @@ Link to it: [My Resume Website](https://www.alexandrepereira.site/).
 
 ## 1. Building the frontend:   
 
-  ```
     - Set up version control:
-    
+
+    ```
       - Created a GitHub repository & cloned it to a local repo by using SSH ([How To Git Clone, Push, and Pull Over SSH](https://www.warp.dev/terminus/git-clone-ssh)).
       - Went to the following repo ([frontend & backend folders](https://github.com/ACloudGuru-Resources/acg-project-azure-resume)). and cloned the starter code in to another local repo.
       - I then copied the frontend and backend folders from one local repo to another.
@@ -68,11 +68,11 @@ Link to it: [My Resume Website](https://www.alexandrepereira.site/).
       - We can add a README.md file in each folder to add more more individual details.
       - The website will be hosted in the frontend folder and the Azure function will be in the api folder.
       - Once we implement tests, it will be in the tests folder.
-      ```
+    ```
 
     - Update the HTML and implement a counter:
 
-      ```
+    ```
       - Here we updated the HTML with our own resume information.
       - We also write the javascript code for the visitor counter functionality.
       - We go to the file index.html in the frontend folder and change the content to match our resume.
@@ -82,7 +82,7 @@ Link to it: [My Resume Website](https://www.alexandrepereira.site/).
         - This [article](https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data) explains how to make an API call with JavaScript by using the Fetch API.
             
     - Viewed the website locally and pushed all the changes to GitHub.
-  ```
+    ```
 
 ## 2. Building the backend:
 
