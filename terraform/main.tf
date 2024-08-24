@@ -188,6 +188,6 @@ resource "azurerm_cdn_endpoint" "endpoint" {
 
   origin {
     name      = "origin1"
-    host_name = "www.alexandrepereira.site"
+    host_name = "safunctionsapptest.z16.web.core.windows.net"
   }
 }
