@@ -82,5 +82,11 @@ jobs:
         id: destroy
         run: terraform destroy -auto-approve  # Destroy the infrastructure without interactive approval
 
+      - name: Clean up
+        id: clean
+        if: always()  # Ensure this step runs even if previous steps fail
+        run: |
+          rm -f main.tfplan  # Remove the Terraform plan file
+
       # Uncomment the following lines if you want the workflow to continue even if the apply step fails
       # continue-on-error: true
