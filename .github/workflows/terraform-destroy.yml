@@ -83,7 +83,7 @@ jobs:
         run: terraform plan -no-color -input=false -out=main.tfplan  # Create an execution plan for Terraform to show what changes will be made
 
       - name: Terraform Destroy
-        run: terraform destroy -no-color -input=false -auto-approve main.tfplan  # Apply the Terraform plan to create/update the infrastructure without user confirmation
+        run: terraform plan -destroy -no-color -input=false -auto-approve main.tfplan  # Apply the Terraform plan to create/update the infrastructure without user confirmation
 
       # Cleanup step to delete the Terraform plan file after deployment
       - name: Clean up
