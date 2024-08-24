@@ -1,4 +1,4 @@
-name: 01. Terraform destroy
+name: 04. Terraform destroy
 
 on:
 #  push:
