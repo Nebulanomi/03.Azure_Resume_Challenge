@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // URL of the Azure Function API endpoint to get the visit count from the live server.
-const functionApiUrl = 'https://getresumecounterforalex.azurewebsites.net/api/Get_Resume_Counter?code=U2VckmhxwWj2JLbxORORj_uur7cwPwLqNUJtm8D2hhdSAzFu8IovgQ%3D%3D'
+const functionApiUrl = 'https://getresumecounterforalex.azurewebsites.net/api/Get_Resume_Counter?code=---'
 
 // URL of the local Azure Function API endpoint to get the visit count when running locally.
 const localFunctionApi = 'http://localhost:7071/api/Get_Resume_Counter';
